@@ -71,7 +71,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src",
     "test": "vscode-test",
     "vscode:prepublish": "npm run bundle",
     "bundle": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode"
