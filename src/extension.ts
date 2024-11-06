@@ -1,5 +1,7 @@
+// extension.ts
+
+import path from "node:path";
 import * as vscode from "vscode";
-import * as path from "path";
 
 export function activate() {
 	vscode.workspace.onWillSaveTextDocument((event) => {

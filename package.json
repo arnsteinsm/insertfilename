@@ -3,7 +3,7 @@
   "displayName": "Insert Filename as Comment",
   "description": "Inserts the filename or relative path as a comment on save.",
   "icon": "images/giof.png",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/arnsteinsm/insertfilename.git"
@@ -26,10 +26,7 @@
     "vscode": "^1.90.0"
   },
   "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact"
+    "onStartupFinished"
   ],
   "contributes": {
     "configuration": {
