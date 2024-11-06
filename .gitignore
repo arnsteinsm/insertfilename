@@ -1,0 +1,12 @@
+out
+dist
+node_modules
+.vscode-test/
+*.vsix
+*.log
+*.js.map
+.vscode/
+.history/
+.env
+.env.local
+.DS_Store

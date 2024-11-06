@@ -1,0 +1,91 @@
+{
+  "name": "insertfilenameascomment",
+  "displayName": "Insert Filename as Comment",
+  "description": "Inserts the filename or relative path as a comment on save.",
+  "icon": "images/giof.png",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arnsteinsm/insertfilenameascomment.git"
+  },
+  "publisher": "arnsteinsm",
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "javascript",
+    "typescript",
+    "react",
+    "filename",
+    "comments",
+    "insert filename"
+  ],
+  "engines": {
+    "vscode": "^1.9.0"
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Insert Filename as Comment Settings",
+      "properties": {
+        "insertFilename.fileExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ],
+          "description": "Specifies the file extensions where the filename comment will be added on save."
+        },
+        "insertFilename.commentStyle": {
+          "type": "string",
+          "enum": [
+            "//",
+            "/* */",
+            "#"
+          ],
+          "default": "//",
+          "description": "Comment style to use for the filename comment. Options are single-line (//), block (/* */), or hash (#)."
+        },
+        "insertFilename.usePath": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, inserts the relative path + filename. If false, inserts only the filename."
+        }
+      }
+    }
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "vscode:prepublish": "npm run bundle",
+    "bundle": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^18.19.64",
+    "@types/vscode": "^1.9.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "esbuild": "^0.24.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.6.3"
+  }
+}
