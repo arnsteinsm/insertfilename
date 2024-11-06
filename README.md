@@ -30,7 +30,7 @@ Customize this extension through the following settings in your VS Code settings
 
 ## Issues and Feedback
 
-- If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/arnsteinsm/insertfilenameascomment/issues) on GitHub.
+- If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/arnsteinsm/insertfilename/issues) on GitHub.
 
 ## License
 
