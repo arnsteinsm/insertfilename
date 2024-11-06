@@ -74,7 +74,8 @@
     "lint": "eslint src",
     "test": "vscode-test",
     "vscode:prepublish": "npm run bundle",
-    "bundle": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode"
+    "bundle": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode",
+    "deploy": "vsce publish --npm"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.9",
@@ -84,6 +85,7 @@
     "@typescript-eslint/parser": "^8.13.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.2.1",
     "esbuild": "^0.24.0",
     "eslint": "^9.14.0",
     "typescript": "^5.6.3"
