@@ -3,7 +3,7 @@
   "displayName": "Insert Filename as Comment",
   "description": "Inserts the filename or relative path as a comment on save.",
   "icon": "images/giof.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/arnsteinsm/insertfilename.git"
@@ -75,16 +75,16 @@
     "deploy": "vsce publish --npm"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.9",
-    "@types/node": "^22.9.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.2",
     "@types/vscode": "^1.90.0",
-    "@typescript-eslint/eslint-plugin": "^8.13.0",
-    "@typescript-eslint/parser": "^8.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "@vscode/vsce": "^3.2.1",
     "esbuild": "^0.24.0",
-    "eslint": "^9.14.0",
-    "typescript": "^5.6.3"
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
   }
 }
