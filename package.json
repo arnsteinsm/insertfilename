@@ -3,7 +3,7 @@
   "displayName": "Insert Filename as Comment",
   "description": "Inserts the filename or relative path as a comment on save.",
   "icon": "images/giof.png",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/arnsteinsm/insertfilename.git"
@@ -76,7 +76,9 @@
           "enum": [
             "//",
             "/* */",
-            "#"
+            "#",
+            "<!-- -->",
+            ";"
           ],
           "default": "//",
           "description": "Fallback comment style if the file type is not in 'commentStyleMap'. This setting is overridden by 'commentStyleMap'."
