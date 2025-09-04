@@ -30,20 +30,46 @@
   ],
   "contributes": {
     "configuration": {
-      "title": "Insert Filename as Comment Settings",
+      "title": "Insert Filename as Comment",
       "properties": {
         "insertFilename.fileExtensions": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
           "default": [
             ".js",
             ".jsx",
             ".ts",
-            ".tsx"
+            ".tsx",
+            ".py",
+            ".rb",
+            ".css",
+            ".scss",
+            ".less",
+            ".html",
+            ".htm",
+            ".xml",
+            ".sh",
+            ".bat"
           ],
           "description": "Specifies the file extensions where the filename comment will be added on save."
+        },
+        "insertFilename.commentStyleMap": {
+          "type": "object",
+          "default": {
+            ".js": "//",
+            ".jsx": "//",
+            ".ts": "//",
+            ".tsx": "//",
+            ".py": "#",
+            ".rb": "#",
+            ".sh": "#",
+            ".css": "/* */",
+            ".scss": "/* */",
+            ".less": "/* */",
+            ".html": "<!-- -->",
+            ".xml": "<!-- -->",
+            ".bat": "@REM"
+          },
+          "description": "Map file extensions to comment styles. E.g. { \".js\": \"//\", \".py\": \"#\", \".html\": \"<!-- -->\" }. For block comments, include both start and end delimiters separated by a space (e.g., '/* */')."
         },
         "insertFilename.commentStyle": {
           "type": "string",
@@ -53,12 +79,12 @@
             "#"
           ],
           "default": "//",
-          "description": "Comment style to use for the filename comment. Options are single-line (//), block (/* */), or hash (#)."
+          "description": "Fallback comment style if the file type is not in 'commentStyleMap'. This setting is overridden by 'commentStyleMap'."
         },
         "insertFilename.usePath": {
           "type": "boolean",
           "default": false,
-          "description": "If true, inserts the relative path + filename. If false, inserts only the filename."
+          "description": "If set to true, the workspace-relative path to the file is used in the comment. If false, only the filename is used."
         }
       }
     }

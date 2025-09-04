@@ -9,57 +9,62 @@ export function activate() {
   });
 }
 
-function insertCommentOnSave(document: vscode.TextDocument) {
+function getCommentText(displayPath: string, commentDelimiter: string): string {
+  const parts = commentDelimiter.split(" ");
+  if (parts.length > 1 && parts[1] !== "") {
+    // Block comment like "/* */" or "<!-- -->"
+    return `${parts[0]} ${displayPath} ${parts[1]}\n\n`;
+  }
+  // Line comment like "//" or "#"
+  return `${commentDelimiter} ${displayPath}\n\n`;
+}
+
+async function insertCommentOnSave(document: vscode.TextDocument) {
   const editor = vscode.window.activeTextEditor;
   if (!editor || editor.document !== document) {
     return;
   }
 
   const config = vscode.workspace.getConfiguration("insertFilename");
-  const usePath = config.get<boolean>("usePath", false);
-  const commentStyle = config.get<string>("commentStyle", "//");
-  const fileExtensions = config.get<string[]>("fileExtensions", [
-    ".js",
-    ".jsx",
-    ".ts",
-    ".tsx",
-  ]);
+  const fileExtensions = config.get<string[]>("fileExtensions", []);
 
   const filePath = document.fileName;
-  const filename = path.basename(filePath);
-  const relativePath = vscode.workspace.asRelativePath(filePath);
-  const displayPath = usePath ? relativePath : filename;
   const fileExtension = path.extname(filePath);
 
   if (!fileExtensions.includes(fileExtension)) {
     return;
   }
 
-  // Define the comment text based on the comment style
-  let commentText = "";
-  switch (commentStyle) {
-    case "//":
-      commentText = `// ${displayPath}\n\n`;
-      break;
-    case "/* */":
-      commentText = `/* ${displayPath} */\n\n`;
-      break;
-    case "#":
-      commentText = `# ${displayPath}\n\n`;
-      break;
-    default:
-      commentText = `// ${displayPath}\n\n`; // Fallback
+  const commentStyleMap = config.get<{ [key: string]: string; }>("commentStyleMap", {});
+  let commentDelimiter: string | undefined = commentStyleMap[fileExtension];
+
+  if (!commentDelimiter) {
+    // Fallback to the old setting if no mapping for the current file extension
+    commentDelimiter = config.get<string>("commentStyle");
   }
 
-  const documentText = document.getText();
+  if (!commentDelimiter) {
+    // No comment style configured for this file type, so do nothing.
+    return;
+  }
+
+  const usePath = config.get<boolean>("usePath", false);
+  const filename = path.basename(filePath);
+  const relativePath = vscode.workspace.asRelativePath(filePath);
+  const displayPath = usePath ? relativePath : filename;
+
+  const commentText = getCommentText(displayPath, commentDelimiter);
   const firstLine = document.lineAt(0).text;
 
   // Check for any comment in the first line that could be a filename comment
+  const allPossibleDelimiters = new Set(Object.values(commentStyleMap));
+  const fallbackStyle = config.get<string>("commentStyle");
+  if (fallbackStyle) { allPossibleDelimiters.add(fallbackStyle); }
+  const commentStarters = [...allPossibleDelimiters].map((d) => d.split(" ")[0]);
+
   const isExistingFilenameComment =
-    (firstLine.startsWith("//") ||
-      firstLine.startsWith("/*") ||
-      firstLine.startsWith("#")) &&
-    fileExtensions.some((ext) => firstLine.includes(ext));
+    commentStarters.some((starter) => firstLine.startsWith(starter)) &&
+    (firstLine.includes(filename) || firstLine.includes(relativePath));
 
   if (isExistingFilenameComment) {
     // Replace the existing comment with the new one if they differ
