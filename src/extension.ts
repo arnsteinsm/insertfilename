@@ -1,4 +1,4 @@
-// extension.ts
+// src/extension.ts
 
 import path from "node:path";
 import * as vscode from "vscode";
