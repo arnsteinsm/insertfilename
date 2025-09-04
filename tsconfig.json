@@ -1,29 +1,38 @@
 {
-	"compilerOptions": {
-		"module": "NodeNext", // Use Node's native ESM support
-		"target": "ES2022", // Modern JS features, supported by Node.js
-		"lib": ["ES2022"], // Library for ES2022 features
-		"outDir": "out", // Output directory for compiled files
-		"rootDir": "src", // Source root
-		"sourceMap": true, // Enable source maps for debugging
-		"strict": true, // Enable all strict type-checking options
-
-		/* Type Checking Enhancements */
-		"noImplicitReturns": true, // Ensure all functions return a value (good for control flow)
-		"noFallthroughCasesInSwitch": true, // Prevent unintended fallthrough in switch statements
-		"noUnusedParameters": true, // Warn on unused parameters for cleaner code
-
-		/* Module Resolution */
-		"esModuleInterop": true, // Allows default imports from CommonJS modules
-		"skipLibCheck": true, // Skip type-checking for .d.ts files to improve build speed
-
-		/* Type Roots for Node */
-		"typeRoots": ["node_modules/@types"], // Look for types in node_modules
-
-		/* Experimental Options */
-		"allowSyntheticDefaultImports": true, // Allow default imports, even without actual default export
-		"resolveJsonModule": true, // Allows importing .json files as modules
-
-		"types": ["node", "mocha"]
-	}
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2022", // Modern JS features, supported by Node.js
+    "lib": [
+      "ES2022"
+    ], // Library for ES2022 features
+    "outDir": "out", // Output directory for compiled files
+    "rootDir": "src", // Source root
+    "sourceMap": true, // Enable source maps for debugging
+    "strict": true, // Enable all strict type-checking options
+    /* Type Checking Enhancements */
+    "noImplicitReturns": true, // Ensure all functions return a value (good for control flow)
+    "noFallthroughCasesInSwitch": true, // Prevent unintended fallthrough in switch statements
+    "noUnusedParameters": true, // Warn on unused parameters for cleaner code
+    /* Module Resolution */
+    "esModuleInterop": true, // Allows default imports from CommonJS modules
+    "skipLibCheck": true, // Skip type-checking for .d.ts files to improve build speed
+    /* Type Roots for Node */
+    "typeRoots": [
+      "node_modules/@types"
+    ], // Look for types in node_modules
+    /* Experimental Options */
+    "allowSyntheticDefaultImports": true, // Allow default imports, even without actual default export
+    "resolveJsonModule": true, // Allows importing .json files as modules
+    "types": [
+      "node",
+      "mocha"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".vscode-test"
+  ]
 }

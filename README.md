@@ -5,6 +5,7 @@ Insert Filename as Comment is a Visual Studio Code extension that automatically 
 ## Features
 
 - Automatically inserts a commented-out file name (with or without path) at the top of files on save.
+- Comment's type (e.g. `#`, `//`, `<!-- -->`, etc) automatically determined based on file's extension.
 - Supports customization for file extensions and comment style.
 - Avoids overwriting existing comments or manually added file name references.
 - Compatible with Visual Studio Code's built-in save functionality.
@@ -25,7 +26,8 @@ Insert Filename as Comment is a Visual Studio Code extension that automatically 
 Customize this extension through the following settings in your VS Code settings:
 
 - `insertFilename.fileExtensions`: Specifies the file extensions where the filename comment will be added on save. Default extensions include `.js`, `.jsx`, `.ts`, and `.tsx`.
-- `insertFilename.commentStyle`: Choose the comment style (`//`, `/* */`, or `#`) for the filename comment. Defaults to `//`.
+- `insertFilename.commentStyleMap`: Map file extensions to comment styles. E.g. `{ ".js": "//", ".py": "#", ".html": "<!-- -->" }`. For block comments, include both start and end delimiters separated by a space (e.g., '/\* \*/').
+- `insertFilename.commentStyle`: Choose the comment style (`//`, `/* */`, or `#`) for the filename comment. Defaults to `//` (commentStyleMap takes precedence).
 - `insertFilename.usePath`: If set to `true`, the (workspace) relative path to the file is included in the comment. If `false`, only the filename is added. Defaults to `false`.
 
 ## Issues and Feedback
