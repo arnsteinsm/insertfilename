@@ -5,6 +5,12 @@
 ### Added
 - Placeholder for upcoming changes. Any suggestions?
 
+## [0.0.6] - 2025-09-04
+### Added
+- Automatic comment type selection via `commentStyleMap` with fallback to `commentStyle`. Thanks to [@simonl65](https://github.com/simonl65) in [#1](https://github.com/arnsteinsm/insertfilename/pull/1).
+- Comprehensive integration tests for VS Code extension behavior.
+- README updates documenting new settings and behavior.
+
 ## [0.0.4] - 2024-12-12
 ### Changed
 - Bump packages.
