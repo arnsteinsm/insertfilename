@@ -5,6 +5,11 @@
 ### Added
 - Placeholder for upcoming changes. Any suggestions?
 
+## [0.0.9] - 2025-09-05
+### Changed
+- Automate GitHub Release creation and attach VSIX on tags.
+- Add Open VSX publishing in CI; will publish on new tags.
+
 ## [0.0.8] - 2025-09-05
 ### Changed
 - Bump version to publish Marketplace update; engines.vscode and @types/vscode remain ^1.95.0.
