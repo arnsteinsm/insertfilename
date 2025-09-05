@@ -68,4 +68,4 @@ jobs:
       # Publish step, only runs if the version verification passed and on Ubuntu environment
       - name: Publish
         if: success() && startsWith(github.ref, 'refs/tags/v') && matrix.os == 'ubuntu-latest'
-        run: npx @vscode/vsce publish -p ${{ secrets.VSCE_TOKEN }}
+        run: npx @vscode/vsce publish -p ${{ secrets.VSCE_PAT }}

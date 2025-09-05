@@ -5,6 +5,11 @@
 ### Added
 - Placeholder for upcoming changes. Any suggestions?
 
+## [0.0.7] - 2025-09-05
+### Changed
+- Bump devDependencies: TypeScript, ESLint, TypeScript-ESLint, @types/node, esbuild, VS Code test/vsce tooling.
+- CI: use VSCE_PAT for publishing from GitHub Actions.
+
 ## [0.0.6] - 2025-09-04
 ### Added
 - Automatic comment type selection via `commentStyleMap` with fallback to `commentStyle`. Thanks to [@simonl65](https://github.com/simonl65) in [#1](https://github.com/arnsteinsm/insertfilename/pull/1).
