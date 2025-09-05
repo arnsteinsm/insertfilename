@@ -3,7 +3,7 @@
   "displayName": "Insert Filename as Comment",
   "description": "Inserts the filename or relative path as a comment on save.",
   "icon": "images/giof.png",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/arnsteinsm/insertfilename.git"
