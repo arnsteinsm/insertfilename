@@ -5,6 +5,10 @@
 ### Added
 - Placeholder for upcoming changes. Any suggestions?
 
+## [0.0.8] - 2025-09-05
+### Changed
+- Bump version to publish Marketplace update; engines.vscode and @types/vscode remain ^1.95.0.
+
 ## [0.0.7] - 2025-09-05
 ### Changed
 - Bump devDependencies: TypeScript, ESLint, TypeScript-ESLint, @types/node, esbuild, VS Code test/vsce tooling.
