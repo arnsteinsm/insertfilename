@@ -23,7 +23,7 @@
     "insert filename"
   ],
   "engines": {
-    "vscode": "^1.103.0"
+    "vscode": "^1.95.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -105,7 +105,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.3.1",
-    "@types/vscode": "^1.103.0",
+    "@types/vscode": "^1.95.0",
     "@typescript-eslint/eslint-plugin": "^8.42.0",
     "@typescript-eslint/parser": "^8.42.0",
     "@vscode/test-cli": "^0.0.11",

@@ -9,7 +9,7 @@
 ### Changed
 - Bump devDependencies: TypeScript, ESLint, TypeScript-ESLint, @types/node, esbuild, VS Code test/vsce tooling.
 - CI: use VSCE_TOKEN for publishing from GitHub Actions.
-- engines.vscode bumped to ^1.103.0 to align with @types/vscode.
+- engines.vscode set to ^1.95.0; pinned @types/vscode to match for broader compatibility.
 
 ## [0.0.6] - 2025-09-04
 ### Added
