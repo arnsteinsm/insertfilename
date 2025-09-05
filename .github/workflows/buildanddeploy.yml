@@ -77,3 +77,7 @@ jobs:
           files: "*.vsix"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to Open VSX
+        if: success() && startsWith(github.ref, 'refs/tags/v') && matrix.os == 'ubuntu-latest'
+        run: npx ovsx publish --pat ${{ secrets.OVSX_TOKEN }} --packagePath *.vsix
