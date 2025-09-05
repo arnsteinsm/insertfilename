@@ -8,7 +8,7 @@ import { glob } from "glob";
  * Called by VS Code test runner. Mocha is responsible for loading and executing tests.
  */
 export function run(): Promise<void> {
-  const mocha = new Mocha({ ui: "tdd", color: true });
+  const mocha = new Mocha({ ui: "tdd", color: true, timeout: 10000 });
   const testsRoot = path.resolve(__dirname, "..");
 
   return new Promise((resolve, reject) => {

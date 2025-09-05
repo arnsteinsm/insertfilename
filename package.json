@@ -100,7 +100,7 @@
     "test": "npm run compile && node ./out/test/runTest.js",
     "vscode:prepublish": "npm run bundle",
     "bundle": "esbuild src/extension.ts --bundle --outdir=out --platform=node --external:vscode",
-    "deploy": "vsce publish --npm"
+    "deploy": "vsce publish"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
